@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroCharges</title>
+</head>
+<body>
+    <h1>Welcome to ZeroCharge !</h1>
+
+    <p>Your intelligent personal assistant for managing daily tasks effortlessly. Add fuzzy goals, get smart task suggestions, prioritize what matters, and reduce your mental load.</p>
+
+    <p>login in just bellow !</p>
+
+    <button id="login-btn">Log in</button>
+
+    <p>If you don't have a account yet click the button bellow to create it</p>
+
+    <button id="create_account_btn">Just here !</button>
+
+    <script>
+        document.getElementById("create_account_btn").onclick = () => {
+            window.location.href = "create_account.html"
+        }
+
+        document.getElementById("login-btn").onclick = () => {
+            window.location.href = "login.html"
+        }
+    </script>
+</body>
+</html>
