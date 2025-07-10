@@ -8,12 +8,32 @@
 <body>
     <h1>Sign in</h1>
 
-    <form action="sign-in">
+    <form action="http://127.0.0.1:5000/create_account" methods="POST">
         <label for="email">Email</label>
         <input type="email" name="email" id="email-input" placeholder="Put ur email in" required><br>
         <label for="password">Password</label>
         <input type="password" name="password" id="password-input" placeholder="Put ur password in" required> <br><br>
-        <button id="submit-btn">Sign in here !</button>
+        <button id="submit-btn">Register here !</button>
     </form>
+
+    <script>
+        document.querySelector("form").addEventListener("submit", async function(e){ // We take the form and listen to the event submit and use a async function to execute await request
+            e.preventDefault() // This prevent te reload of the page after submiting the form
+
+            const form = e.target; // e.target = recover the form 
+            const formData = new FormData(form); // Create a object FormData that contains email and password
+
+            const response = await fetch("http://127.0.0.1:5000/create_account", { // Use fetch() to send a POST request to the Flask backend and send te formData as body of the request
+                method: "POST",
+                body: formData
+            });
+
+            if (response.ok) { // if the http response is a success (response.ok == true) then we go to login.html if not we have a error message 
+                window.location.href = "login.html";
+            } else {
+                alert("Email or password are already used");
+            }
+        });
+    </script>
 </body>
 </html>
